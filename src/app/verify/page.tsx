@@ -29,8 +29,13 @@ export default function VerifyScreen() {
             });
 
             if (!res.ok) {
-                const errorData = await res.json();
-                throw new Error(errorData.error || 'Verification failed');
+                const text = await res.text(); // Get raw text first to avoid JSON parse errors
+                try {
+                    const errorData = JSON.parse(text);
+                    throw new Error(errorData.error || 'Verification failed (JSON)');
+                } catch (e) {
+                    throw new Error(`Server Error (${res.status}): ${text.substring(0, 50)}...`);
+                }
             }
 
             const data = await res.json();
@@ -39,7 +44,8 @@ export default function VerifyScreen() {
 
             router.push('/intro');
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Please check your details and try again.');
+            console.error(err);
+            setError(err instanceof Error ? err.message : `System Error: ${JSON.stringify(err)}`);
         } finally {
             setIsLoading(false);
         }
