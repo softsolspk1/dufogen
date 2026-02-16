@@ -84,6 +84,7 @@ export default function VerifyScreen() {
                     <div className="text-center mb-8">
                         <div className="w-16 h-1 bg-plum mx-auto mb-4 rounded-full"></div>
                         <h2 className="text-2xl font-bold text-plum-dark">Doctor Verification</h2>
+                        <p className="text-sm text-clinical mt-2">v3 (Postgres Active)</p>
                         <p className="text-sm text-clinical mt-2">Please identify yourself to access clinical cases.</p>
                     </div>
 
