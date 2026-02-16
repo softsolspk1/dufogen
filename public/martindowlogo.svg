@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" fill="none">
+  <!-- Symbol: Dotted Arc / Curve -->
+  <g fill="#7B1FA2">
+    <!-- Top Row -->
+    <circle cx="60" cy="20" r="8" />
+    <circle cx="85" cy="25" r="8" />
+    <circle cx="110" cy="35" r="8" />
+    <circle cx="130" cy="50" r="7" />
+    
+    <!-- Middle Row -->
+    <circle cx="50" cy="40" r="9" opacity="0.9" />
+    <circle cx="75" cy="45" r="9" opacity="0.9" />
+    <circle cx="100" cy="55" r="8" opacity="0.9" />
+    <circle cx="120" cy="70" r="7" opacity="0.8" />
+    
+    <!-- Bottom Row -->
+    <circle cx="60" cy="65" r="8" opacity="0.8" />
+    <circle cx="85" cy="70" r="8" opacity="0.8" />
+    <circle cx="105" cy="80" r="7" opacity="0.7" />
+  </g>
+
+  <!-- Text: Martin Dow -->
+  <text x="145" y="65" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="36" fill="#5A2A68">Martin Dow</text>
+  
+  <!-- Slogan -->
+  <text x="145" y="85" font-family="Arial, Helvetica, sans-serif" font-style="italic" font-size="10" fill="#7B1FA2">Creating Distinction for Life</text>
+</svg>

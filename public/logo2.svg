@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <defs>
+    <linearGradient id="plumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7B3F8C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5A2A68;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon: Abstract Harmony/Cycle -->
+  <g transform="translate(10, 10)">
+    <!-- Outer Ring -->
+    <path d="M30,0 A30,30 0 1,0 60,30 A30,30 0 0,0 30,0 Z M30,55 A25,25 0 1,1 55,30 A25,25 0 0,1 30,55 Z" fill="url(#plumGradient)" opacity="0.1" />
+    <!-- Dynamic Curves -->
+    <path d="M30,5 A25,25 0 0,1 55,30" fill="none" stroke="url(#plumGradient)" stroke-width="4" stroke-linecap="round" />
+    <path d="M30,55 A25,25 0 0,1 5,30" fill="none" stroke="#B98CF3" stroke-width="4" stroke-linecap="round" />
+    <!-- Central Dot -->
+    <circle cx="30" cy="30" r="6" fill="url(#plumGradient)" />
+  </g>
+
+  <!-- Text: DUFOGEN -->
+  <text x="80" y="50" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="38" fill="url(#plumGradient)" letter-spacing="1">
+    DUFOGEN
+  </text>
+  
+  <!-- Subtext -->
+  <text x="82" y="70" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#6B7280" letter-spacing="2" font-weight="bold">
+    THE CYCLE BALANCE CHALLENGE
+  </text>
+</svg>

@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Doctor {
+  id          String     @id @default(uuid())
+  name        String
+  pmdc_number String     @unique
+  specialty   String
+  created_at  DateTime   @default(now())
+  progress    Progress[]
+}
+
+model Case {
+  id                   String     @id @default(uuid())
+  title                String
+  description          String
+  sequence_order       Int        @unique
+  correct_outcome_text String
+  clinical_insight_text String
+  presentation_media_url String?
+  outcome_media_url    String?
+  questions            Question[]
+  progress             Progress[]
+}
+
+model Question {
+  id        String   @id @default(uuid())
+  case_id   String
+  text      String
+  case      Case     @relation(fields: [case_id], references: [id])
+  options   Option[]
+}
+
+model Option {
+  id          String   @id @default(uuid())
+  question_id String
+  text        String
+  is_correct  Boolean  @default(false)
+  question    Question @relation(fields: [question_id], references: [id])
+}
+
+model Progress {
+  id           String   @id @default(uuid())
+  doctor_id    String
+  case_id      String
+  is_completed Boolean  @default(false)
+  completed_at DateTime @default(now())
+  doctor       Doctor   @relation(fields: [doctor_id], references: [id])
+  case         Case     @relation(fields: [case_id], references: [id])
+
+  @@unique([doctor_id, case_id])
+}
