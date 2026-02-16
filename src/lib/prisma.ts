@@ -1,7 +1,15 @@
 import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
-    return new PrismaClient();
+    // TEMPORARY: Hardcoded connection to bypass Vercel Env Var issues.
+    // User provided credentials in chat.
+    return new PrismaClient({
+        datasources: {
+            db: {
+                url: "postgresql://neondb_owner:npg_06anioOXHgIu@ep-snowy-recipe-ait3otsk-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require",
+            },
+        },
+    });
 };
 
 type PrismaClientSingleton = ReturnType<typeof prismaClientSingleton>;
