@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: Request) {
     try {
         const body = await req.json();
+        console.log("VERIFY REQUEST RECEIVED:", body);
         const { name, pmdc_number, specialty } = body;
 
         if (!pmdc_number) {

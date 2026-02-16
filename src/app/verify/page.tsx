@@ -89,6 +89,11 @@ export default function VerifyScreen() {
                 <Card className="w-full max-w-md relative z-10 shadow-2xl border-t-4 border-plum bg-white/90 backdrop-blur-sm">
                     <div className="text-center mb-8">
                         <div className="w-16 h-1 bg-plum mx-auto mb-4 rounded-full"></div>
+                        <div className="bg-red-100 border-2 border-red-500 text-red-700 p-2 mb-4 text-center font-bold rounded">
+                            DEBUG MODE ENABLED v4
+                            <br />
+                            <span className="text-xs font-normal">If you see this, you have the new code.</span>
+                        </div>
                         <h2 className="text-2xl font-bold text-plum-dark">Doctor Verification</h2>
                         <p className="text-sm text-clinical mt-2">v3 (Postgres Active)</p>
                         <p className="text-sm text-clinical mt-2">Please identify yourself to access clinical cases.</p>
