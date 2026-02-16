@@ -15,6 +15,8 @@ interface Case {
 
 export default function DashboardScreen() {
     const [cases, setCases] = useState<Case[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [doctorName, setDoctorName] = useState('');
     const [error, setError] = useState('');
 
     useEffect(() => {
