@@ -39,6 +39,8 @@
   "exclude": [
     "node_modules",
     "prisma/seed.ts",
-    "verify_db.ts"
+    "verify_db.ts",
+    "debug_cases.ts",
+    "debug_connection.ts"
   ]
 }
