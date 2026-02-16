@@ -15,8 +15,7 @@ interface Case {
 
 export default function DashboardScreen() {
     const [cases, setCases] = useState<Case[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [doctorName, setDoctorName] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         // Hydrate doctor name
@@ -30,10 +29,12 @@ export default function DashboardScreen() {
         const fetchCases = async () => {
             try {
                 const res = await fetch('/api/cases');
+                if (!res.ok) throw new Error(`API Error: ${res.status}`);
                 const data = await res.json();
                 setCases(data.cases || []);
             } catch (error) {
                 console.error('Failed to fetch cases', error);
+                setError(error instanceof Error ? error.message : 'Failed to load cases');
             } finally {
                 setLoading(false);
             }
@@ -43,6 +44,16 @@ export default function DashboardScreen() {
     }, []);
 
     if (loading) return <div className="flex-grow flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-plum"></div></div>;
+
+    if (error) return (
+        <div className="flex-grow flex items-center justify-center text-red-600">
+            <div className="text-center">
+                <p className="font-bold text-lg">⚠️ Error Loading Cases</p>
+                <p>{error}</p>
+                <Button onClick={() => window.location.reload()} className="mt-4 bg-plum text-white">Retry</Button>
+            </div>
+        </div>
+    );
 
     return (
         <div className="flex-grow flex flex-col p-6 space-y-6">
