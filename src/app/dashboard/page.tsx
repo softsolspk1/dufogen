@@ -63,6 +63,7 @@ export default function DashboardScreen() {
                 <div>
                     <h1 className="text-xl font-bold text-plum-dark">Case Dashboard</h1>
                     <p className="text-sm text-clinical overflow-hidden text-ellipsis whitespace-nowrap max-w-[200px]">Welcome, {doctorName || 'Doctor'}</p>
+                    <p className="text-xs text-gray-400 mt-1">Debug: {cases.length} cases loaded</p>
                 </div>
                 {/* Simple Progress Ring Placeholder */}
                 <div className="w-10 h-10 rounded-full border-4 border-lavender border-t-plum flex items-center justify-center text-xs font-bold text-plum">
