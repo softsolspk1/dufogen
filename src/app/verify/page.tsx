@@ -28,7 +28,10 @@ export default function VerifyScreen() {
                 body: JSON.stringify({ name, pmdc_number: pmdc, specialty })
             });
 
-            if (!res.ok) throw new Error('Verification failed');
+            if (!res.ok) {
+                const errorData = await res.json();
+                throw new Error(errorData.error || 'Verification failed');
+            }
 
             const data = await res.json();
             // Store doctor info in localStorage for persistence across session
@@ -36,7 +39,7 @@ export default function VerifyScreen() {
 
             router.push('/intro');
         } catch (err) {
-            setError('Please check your details and try again.');
+            setError(err instanceof Error ? err.message : 'Please check your details and try again.');
         } finally {
             setIsLoading(false);
         }

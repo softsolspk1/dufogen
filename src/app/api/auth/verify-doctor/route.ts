@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     } catch (error) {
         console.error('Error verifying doctor:', error);
         return NextResponse.json(
-            { error: 'Internal Server Error' },
+            { error: error instanceof Error ? error.message : 'Internal Server Error' },
             { status: 500 }
         );
     }
